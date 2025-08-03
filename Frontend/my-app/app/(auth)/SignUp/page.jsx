@@ -1,10 +1,11 @@
 'use client'
 import React, { useState } from 'react'
 
+import { useRouter } from 'next/navigation'
 
 const Signup = () => {
   const [data , setdata]= useState({name : ' ', year : ' ', dept:' ' });
-
+const router = useRouter();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -19,6 +20,7 @@ const Signup = () => {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4 p-4 max-w-md mx-auto">
+       <button onClick={()=>router.push('/')}>Go Back</button>
       <input
         name="name"
         value={data.name}
@@ -44,7 +46,7 @@ const Signup = () => {
         type="submit"
         className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
       >
-        Get started Free
+         SignUp
       </button>
     </form>
   );

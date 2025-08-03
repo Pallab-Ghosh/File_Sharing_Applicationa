@@ -1,6 +1,9 @@
-import Content from '@/component/Content'
+
+ 
 import { FileText } from 'lucide-react'
 import React from 'react'
+import Content from '../components/Content'
+
 
 const FrontPage = () => {
   return (
@@ -9,7 +12,7 @@ const FrontPage = () => {
          <div> <FileText color='blue' size={50}/></div>
           <p className='text-3xl font-bold items-center flex'>ShareDoc</p>
         </div>
-        <Content/>
+         <Content/>
        </div>
   )
 }
