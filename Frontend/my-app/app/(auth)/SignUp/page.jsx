@@ -1,56 +1,67 @@
 'use client'
-import React, { useState } from 'react'
+import { ErrorMessage, Field, Form, Formik } from 'formik';
+import React from 'react'
+ 
+import * as Yup from 'yup';
 
-import { useRouter } from 'next/navigation'
-
-const Signup = () => {
-  const [data , setdata]= useState({name : ' ', year : ' ', dept:' ' });
-const router = useRouter();
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setdata((prev) => ({ ...prev, [name]: value }));
+ const validation_Schema = Yup.object({
+  name:Yup.string().required('Name is Required'),
+  email:Yup.string().email('Invalid Email').required('Email is required'),
+  phone :Yup.string().matches(/^[0-9]{10}$/, 'Phone must be 10 digits').required('Number is Required')
+ })
+ const page = () => {
+    const initial_Values = {name: '',email: '',phone: ''};
+      const handleSubmit = (values,{ setSubmitting, resetForm }) => {
+       alert(JSON.stringify(values));
+       resetForm();
+    
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Form Data:", data);
-    // You can handle API submission here
-  };
+   return (
+     <div className='max-w-md mx-auto mt-10 p-6 shadow-lg rounded-lg border'>
+         <Formik initialValues={initial_Values} validationSchema={validation_Schema} onSubmit={handleSubmit}>
+          <Form className="flex flex-col gap-4">
+          <div>
+            <label className="block text-gray-700">Name</label>
+            <Field
+              name="name"
+              className="w-full border p-2 rounded"
+              placeholder="Enter your name"
+            />
+            <ErrorMessage name="name" component="div" className="text-red-500 text-sm" />
+          </div>
 
-  return (
-    <form onSubmit={handleSubmit} className="space-y-4 p-4 max-w-md mx-auto">
-       <button onClick={()=>router.push('/')}>Go Back</button>
-      <input
-        name="name"
-        value={data.name}
-        onChange={handleChange}
-        placeholder="Enter your name"
-        className="border border-gray-300 p-2 w-full rounded"
-      />
-      <input
-        name="year"
-        value={data.year}
-        onChange={handleChange}
-        placeholder="Enter your year"
-        className="border border-gray-300 p-2 w-full rounded"
-      />
-      <input
-        name="dept"
-        value={data.dept}
-        onChange={handleChange}
-        placeholder="Enter your department"
-        className="border border-gray-300 p-2 w-full rounded"
-      />
-      <button
-        type="submit"
-        className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
-      >
-         SignUp
-      </button>
-    </form>
-  );
-};
+          <div>
+            <label className="block text-gray-700">Email</label>
+            <Field
+              name="email"
+              type="email"
+              className="w-full border p-2 rounded"
+              placeholder="Enter your email"
+            />
+            <ErrorMessage name="email" component="div" className="text-red-500 text-sm" />
+          </div>
 
+          <div>
+            <label className="block text-gray-700">Phone Number</label>
+            <Field
+              name="phone"
+              className="w-full border p-2 rounded"
+              placeholder="Enter your phone number"
+            />
+            <ErrorMessage name="phone" component="div" className="text-red-500 text-sm" />
+          </div>
 
-export default  Signup
+          <button
+            type="submit"
+            className="bg-blue-500 text-white py-2 rounded hover:bg-blue-600"
+          >
+            Submit
+          </button>
+        </Form>
+         </Formik>
+     </div>
+   )
+ }
+ 
+ export default page
