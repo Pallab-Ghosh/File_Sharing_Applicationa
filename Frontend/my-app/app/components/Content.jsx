@@ -14,7 +14,7 @@ const Content = () => {
                 </div>
           </div>
             <div className='mt-5 flex justify-between gap-5 '>
-               <Link href={'/Signup'}>
+               <Link href={'/SignUp'}>
                   <div className='bg-blue-700 flex text-amber-50 w-50 sm:w-56 sm:text-2xl sm:h-14 justify-center h-10 items-center text-xl rounded-md hover:bg-blue-500'> Get Started Free</div>
                </Link>
                <Link href={'/Signin'}>
