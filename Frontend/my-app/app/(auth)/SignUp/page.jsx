@@ -1,5 +1,6 @@
 'use client'
 import { ErrorMessage, Field, Form, Formik } from 'formik';
+import Link from 'next/link';
 import React from 'react'
  
 import * as Yup from 'yup';
@@ -20,7 +21,7 @@ import * as Yup from 'yup';
   };
 
    return (
-     <div className='max-w-md mx-auto mt-10 p-6 shadow-lg rounded-lg border'>
+     <div className='w-96 max-w-md  mx-auto mt-20 p-6 shadow-lg rounded-lg border'>
          <Formik initialValues={initial_Values} validationSchema={validation_Schema} onSubmit={handleSubmit}>
           <Form className="flex flex-col gap-4">
           <div>
@@ -80,8 +81,17 @@ import * as Yup from 'yup';
           >
             Submit
           </button>
+           <div className='text-center'>
+               <p>Already have an account?</p>
+               <Link href='/SignIn'>
+                   <p className=' text-blue-800 font-bold'>Sign in</p>
+                 </Link>
+            
+           </div>
+          
         </Form>
          </Formik>
+        
      </div>
    )
  }
