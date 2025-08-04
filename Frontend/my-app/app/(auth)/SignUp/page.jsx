@@ -7,10 +7,12 @@ import * as Yup from 'yup';
  const validation_Schema = Yup.object({
   name:Yup.string().required('Name is Required'),
   email:Yup.string().email('Invalid Email').required('Email is required'),
-  phone :Yup.string().matches(/^[0-9]{10}$/, 'Phone must be 10 digits').required('Number is Required')
+  phone :Yup.string().matches(/^[0-9]{10}$/, 'Phone must be 10 digits').required('Number is Required'),
+  password :Yup.string().min(6,"Password must be atleast 6 characters").required("Please Provide Password"),
+  confirmPassword:Yup.string().oneOf([Yup.ref('password'),null],"Password must match") .required("Confirm password is required"),
  })
  const page = () => {
-    const initial_Values = {name: '',email: '',phone: ''};
+    const initial_Values = {name: '',email: '',phone: '' ,password: "",confirmPassword: "",};
       const handleSubmit = (values,{ setSubmitting, resetForm }) => {
        alert(JSON.stringify(values));
        resetForm();
@@ -50,6 +52,26 @@ import * as Yup from 'yup';
               placeholder="Enter your phone number"
             />
             <ErrorMessage name="phone" component="div" className="text-red-500 text-sm" />
+          </div>
+
+           <div>
+            <label className="block text-gray-700">Password</label>
+            <Field
+              name="password"
+              className="w-full border p-2 rounded"
+              placeholder="Enter your password"
+            />
+            <ErrorMessage name="password" component="div" className="text-red-500 text-sm" />
+          </div>
+
+           <div>
+            <label className="block text-gray-700">Confirm Password</label>
+            <Field
+              name="confirmPassword"
+              className="w-full border p-2 rounded"
+              placeholder="Confirm your password"
+            />
+            <ErrorMessage name="confirmPassword" component="div" className="text-red-500 text-sm" />
           </div>
 
           <button
