@@ -1,9 +1,15 @@
+'use client'
+import { useRouter } from 'next/navigation';
 import React from 'react'
 
-const Signin = () => {
+const SignIn = () => {
+  const router = useRouter();
   return (
-    <div>Signin</div>
+    <div>
+       <button onClick={()=>router.push('/')}>Go Back</button>
+      SignIn
+      </div>
   )
 }
 
-export default Signin
+export default SignIn
