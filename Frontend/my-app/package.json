@@ -20,9 +20,10 @@
     "yup": "^1.7.0"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
+    "@types/node": "24.2.0",
     "eslint": "^9",
-    "eslint-config-next": "15.4.2",
-    "@eslint/eslintrc": "^3"
+    "eslint-config-next": "15.4.2"
   }
 }

@@ -1,7 +1,6 @@
 
  
 import { FileText } from 'lucide-react'
-import React from 'react'
 import Content from '../components/Content'
 
 
@@ -13,7 +12,6 @@ const FrontPage = () => {
           <p className='text-2xl font-bold items-center flex'>ShareDoc</p>
         </div>
          <Content/>
-       </div>
         <Content/>
        </>
   )
