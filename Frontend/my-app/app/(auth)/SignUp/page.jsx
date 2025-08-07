@@ -25,7 +25,7 @@ const page = () => {
       <div>
         <button className='bg-blue-700 hover:bg-blue-50 w-52 h-6'> Home</button>
       </div>
-      <div className='w-full max-w-md  mx-auto mt-20 p-6 shadow-lg rounded-lg border'>
+      <div className='w-full max-w-md  mx-auto mt-20 p-7 shadow-lg rounded-lg border'>
         <div className='flex flex-col items-center text-center mb-6'>
           <FileText size={50} color='blue' className='mb-7' />
           <p className=' text-3xl font-bold'>Create Account </p>
