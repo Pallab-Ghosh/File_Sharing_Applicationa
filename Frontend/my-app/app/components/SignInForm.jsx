@@ -23,15 +23,15 @@ const initial_Values = {email: '',password: "" };
 
 
 return (
-    <div> 
+    <div > 
         <Formik initialValues={initial_Values} validationSchema={validation_Schema} onSubmit={handleSubmit}>
-        <Form className="flex flex-col gap-4">
+        <Form className="flex flex-col gap-4 items-center">
             <div>
-            <label className="block text-gray-700">Email</label>
+            <label className="block text-gray-700 font-bold">Email</label>
             <Field
                 name="email"
                 type="email"
-                className="w-full border p-2 rounded"
+                className="sm:w-md w-80 border p-2 rounded"
                 placeholder="Enter your email"
             />
             <ErrorMessage name="email" component="div" className="text-red-500 text-sm" />
@@ -39,10 +39,10 @@ return (
 
         
             <div>
-            <label className="block text-gray-700">Password</label>
+            <label className="block text-gray-700 font-bold">Password</label>
             <Field
                 name="password"
-                className="w-full border p-2 rounded"
+                className="sm:w-md w-80 border p-2 rounded"
                 placeholder="Enter your password"
             />
             <ErrorMessage name="password" component="div" className="text-red-500 text-sm" />
@@ -51,16 +51,22 @@ return (
 
             <button
             type="submit"
-            className="bg-blue-500 text-white py-2 rounded hover:bg-blue-600"
+            className="bg-blue-600 text-white h-14 rounded-lg hover:bg-blue-700 sm:w-md w-80"
             >
-            Sign-ins
+                 Sign-in 
             </button>
-            <div className='text-center'>
-            <p className='text-xl'>Dont have an account?</p>
-            <Link href='/SignUp'>
-                <p className=' text-blue-800 font-bold textlg'>Sign Up</p>
-            </Link>
-            </div>
+               <div className='text-center mb-14'>
+                    <Link href='/resetPassword'>
+                        <p className=' text-blue-600 font-bold textlg hover:underline'>Forgot your password?</p>
+                    </Link>
+                </div>
+
+            <div className='text-center mb-7'>
+                <p className='text-xl'>Dont have an account?</p>
+                <Link href='/SignUp'>
+                    <p className=' text-blue-600 font-bold textlg'>Sign Up</p>
+                </Link>
+            </div >
         </Form>
         </Formik>
     </div>
