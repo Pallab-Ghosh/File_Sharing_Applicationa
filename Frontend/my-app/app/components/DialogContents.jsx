@@ -12,19 +12,21 @@ import {
 
 import { Label } from "@/components/ui/label"
 
-const  DialogContents =({type})=> {
+const  DialogContents =({formprops : {type , Content,title}})=> {
   return (
     <Dialog>
       <form>
         <DialogTrigger asChild>
           <button variant="outline">
-            {type == 'feedback' && 'feedback'}
-             {type == 'Contact us' && 'Contact us'}
+            {Content} 
             </button>
         </DialogTrigger>
+
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
-            <DialogTitle>Edit profile</DialogTitle>
+            <DialogTitle>
+             {title}
+              </DialogTitle>
             <DialogDescription>
               Make changes to your profile here. Click save when you&apos;re
               done.
@@ -46,6 +48,7 @@ const  DialogContents =({type})=> {
             </DialogClose>
             <button type="submit">Save changes</button>
           </DialogFooter>
+
         </DialogContent>
       </form>
     </Dialog>
