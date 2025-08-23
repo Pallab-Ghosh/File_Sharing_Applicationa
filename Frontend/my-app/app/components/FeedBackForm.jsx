@@ -2,6 +2,7 @@
 import * as Yup from 'yup';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 
+
 // Define the Schema for Feedback Form
 const validation_Schema = Yup.object({
   name: Yup.string().required('Name is required'),
@@ -89,12 +90,15 @@ const FeedbackForm = () => {
           </div>
 
           {/* Submit */}
-          <button
+       
+      <button
             type="submit"
             className="bg-blue-600 text-white h-14 rounded-lg hover:bg-blue-700 sm:w-md w-80"
           >
             Submit Feedback
           </button>
+         
+    
         </Form>
       </Formik>
     </div>

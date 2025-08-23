@@ -24,7 +24,7 @@ const  DialogContents =({formprops : {type , BtnContent,title,desc}})=> {
             </button>
         </DialogTrigger>
 
-        <DialogContent className="sm:max-w-[425px]">
+        <DialogContent className="sm:w-lg">
           <DialogHeader>
             <DialogTitle>
              {title}
@@ -35,11 +35,15 @@ const  DialogContents =({formprops : {type , BtnContent,title,desc}})=> {
           </DialogHeader>
 
           <div>
-              {
-                type =='feedback' && <FeedBackForm/> ||
-                type =='contact' && <ContactForm/>
-              }
+               { type =='feedback' && <FeedBackForm/> }
+                {type =='contact' && <ContactForm/>}
           </div>
+
+          <DialogFooter>
+            <DialogClose asChild>
+              <button className='w-full bg-blue-600 hover:bg-blue-700 h-14 text-white rounded-lg' variant="outline">Close</button>
+            </DialogClose>
+          </DialogFooter>
 
         </DialogContent>
       </form>
