@@ -11,14 +11,16 @@ import {
 } from "@/components/ui/dialog"
 
 import { Label } from "@/components/ui/label"
+import FeedBackForm from "./FeedBackForm"
+import ContactForm from "./ContactForm"
 
-const  DialogContents =({formprops : {type , Content,title}})=> {
+const  DialogContents =({formprops : {type , BtnContent,title,desc}})=> {
   return (
     <Dialog>
       <form>
         <DialogTrigger asChild>
           <button variant="outline">
-            {Content} 
+            {BtnContent} 
             </button>
         </DialogTrigger>
 
@@ -28,26 +30,16 @@ const  DialogContents =({formprops : {type , Content,title}})=> {
              {title}
               </DialogTitle>
             <DialogDescription>
-              Make changes to your profile here. Click save when you&apos;re
-              done.
+             {desc}
             </DialogDescription>
           </DialogHeader>
 
-          <div className="grid gap-4">
-            <div className="grid gap-3">
-              <Label htmlFor="name-1">Name</Label>
-            </div>
-            <div className="grid gap-3">
-              <Label htmlFor="username-1">Username</Label>
-            </div>
+          <div>
+              {
+                type =='feedback' && <FeedBackForm/> ||
+                type =='contact' && <ContactForm/>
+              }
           </div>
-
-          <DialogFooter>
-            <DialogClose asChild>
-              <button variant="outline">Cancel</button>
-            </DialogClose>
-            <button type="submit">Save changes</button>
-          </DialogFooter>
 
         </DialogContent>
       </form>
