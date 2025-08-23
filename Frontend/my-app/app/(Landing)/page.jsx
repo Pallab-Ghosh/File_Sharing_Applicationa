@@ -6,11 +6,11 @@ const FrontPage = () => {
   return (
     <div>
       <div className='flex sm:justify-between sm:items-center'>
-        <div className='flex gap-2 item-center ml-5 mt-5'>
+        <div className='flex gap-1 item-center ml-mr-2 sm:mt-5 sm:mr-5 mt-6'>
           <div>
-            <FileText color='blue' size={40} />
+            <FileText color='blue' size={32} className='sm:size-10 sm:ml-3' />
           </div>
-          <p className='text-2xl font-bold items-center flex'>ShareDoc</p>
+          <p className='sm:text-3xl text-2xl font-bold items-center flex'>ShareDoc</p>
         </div>
         <FeedbackandContact />
       </div>

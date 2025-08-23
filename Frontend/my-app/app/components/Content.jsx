@@ -8,9 +8,9 @@ const Content = () => {
          <div className='flex flex-col justify-center gap-4 mt-20 sm:mt-36 '>
             <p className='text-5xl sm:text-7xl text-center font-bold'>Share Documents</p>
             <p className='text-5xl sm:text-7xl text-center text-blue-700  font-bold'>Collaborate Seamlessly</p>
-            <div className='mt-8 flex flex-col p-4 bg-amber-200 mb-6'>
-               <p className='text-xl text-center text-gray-600'> Upload, share, and collaborate on documents with your team. Comment,<br/>
-             download, and manage your files all in one secure platform.</p>
+            <div className='mt-8 flex flex-col p-4 mb-6'>
+               <p className='text-xl text-center text-gray-600'> Upload, share, and collaborate on documents with your team. Comment,<br />
+                  download, and manage your files all in one secure platform.</p>
             </div>
          </div>
          <div className='mt-5 sm:mt-12 flex sm:justify-between gap-5 flex-col sm:flex-row'>
