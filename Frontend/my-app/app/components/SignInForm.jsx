@@ -3,6 +3,7 @@ import React from 'react'
 import * as Yup from 'yup';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 //Define the Schema for Form
 const validation_Schema = Yup.object({
@@ -12,13 +13,16 @@ const validation_Schema = Yup.object({
 
 const SignInForm = () => {
     
-    //Crete a Default value 
-const initial_Values = {email: '',password: "" };
+       //Crete a Default value 
+        const initial_Values = {email: '',password: "" };
+
+        const router = useRouter();
 
     //After Form Submission handleSubmit func will run
     const handleSubmit = (values, { setSubmitting, resetForm }) => {
       alert(JSON.stringify(values));
       resetForm();
+      router.push('/home')
   };
 
 
