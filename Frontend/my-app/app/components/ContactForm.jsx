@@ -66,7 +66,7 @@ const ContactForm = () => {
               name="mobile"
               type="text"
               className="sm:w-md w-80 border p-2 rounded"
-              placeholder="Enter subject"
+              placeholder="Enter Contact Number"
             />
             <ErrorMessage name="mobile" component="div" className="text-red-500 text-sm" />
           </div>
@@ -76,7 +76,7 @@ const ContactForm = () => {
             type="submit"
             className="bg-blue-600 text-white h-14 rounded-lg hover:bg-blue-700 sm:w-md w-80"
           >
-            Connect Me
+            Connect Us
           </button>
         </Form>
       </Formik>
